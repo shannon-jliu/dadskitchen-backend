@@ -34,6 +34,10 @@ public class Chef extends User {
         createdRecipes.add(recipe);
     }
 
+    public void addExistingRecipe(Recipe recipe){
+        createdRecipes.add(recipe);
+    }
+
     public boolean makeDish(Recipe recipe) {
         if (inventory.canUseRecipe(recipe)) {
             inventory.useItemsForRecipe(recipe);

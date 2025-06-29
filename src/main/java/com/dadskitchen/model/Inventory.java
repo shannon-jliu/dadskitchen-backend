@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -129,5 +130,9 @@ public class Inventory {
 
         throw new IllegalArgumentException("Cannot convert from " + unit + " to " + goal);
 
+    }
+
+    public List<InventoryItem> getItems() {
+        return this.items;
     }
 }

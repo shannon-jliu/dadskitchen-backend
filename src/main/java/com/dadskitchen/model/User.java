@@ -15,19 +15,20 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
+    private Long id;
     private String name;
     private ArrayList<Rating> ratings;
     private ArrayList<Recipe> recommended;
+    private ArrayList<Recipe> recommendations;
 
     public User(String name) {
         this.name = name;
-        this.id = UUID.randomUUID(); // unique identifier
         this.ratings = new ArrayList<>();
         this.recommended = new ArrayList<>();
+        this.recommendations = new ArrayList<>();
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
@@ -56,7 +57,13 @@ public class User {
         return ratings;
     }
 
-    public ArrayList<Recipe> getRecommendations() {
+    public ArrayList<Recipe> getRecommendationsFromSelf() {
         return recommended;
+    }
+
+    public ArrayList<Recipe> getRecommendationsFromOthers() {return recommendations; }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
